@@ -9,5 +9,7 @@ class Post extends Model
 {
     use HasFactory;
     protected $table = "posty";
+    // Tylko poniższe pola mogą być przypisane masowo - przy pomocy metody create() lub update() nie save() !
     protected $fillable = ['tytul','autor','email','tresc'];
+
 }

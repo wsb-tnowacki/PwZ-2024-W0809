@@ -4,9 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Post;
 use App\Http\Requests\PostRequest;
-
-use Illuminate\Support\Facades\Request;
-
+use Illuminate\Http\Request;
 
 class PostController extends Controller
 {
@@ -31,15 +29,16 @@ class PostController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(Request $request)
+    public function store(PostRequest $request)
     {
        // dd($request);
        $post = new Post();
-       $post->tytul = request('tytul');
+       /* $post->tytul = request('tytul');
        $post->autor = request('autor');
        $post->email = request('email');
        $post->tresc = request('tresc');
-       $post->save();
+       $post->save(); */
+       $post->create($request->all());
        return redirect()->route('post.index');
     }
 
@@ -62,14 +61,14 @@ class PostController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, Post $post)
+    public function update(PostRequest $request, Post $post)
     {
-        $post->tytul = request('tytul');
+  /*       $post->tytul = request('tytul');
         $post->autor = request('autor');
         $post->email = request('email');
-        $post->tresc = request('tresc');
-
-        $post->update();
+        $post->tresc = request('tresc'); */
+//dd($post);
+        $post->update($request->all());
        return redirect()->route('post.index')->with('message', "Pomyślnie zmieniono post");
     }
 
