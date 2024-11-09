@@ -20,14 +20,14 @@ Route::get('/', function () {
 
 Route::get('/kontakt', function () {
     return view('kontakt');
-})->name('kontakt')->middleware('auth');
+})->name('kontakt');
 Route::get('/onas', function () {
     return view('onas');
 })->name('onas');
 
 Route::get('/dashboard', function () {
-   //return redirect()->route('start');
-   return view('dashboard');
+   return redirect()->route('start');
+   //return view('dashboard');
 })->middleware(['auth', 'verified'])->name('dashboard');
 
 Route::middleware('auth')->group(function () {

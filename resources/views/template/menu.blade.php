@@ -12,17 +12,19 @@
           <li class="nav-item">
             <a class="nav-link" href="{{route('onas')}}">O nas</a>
           </li>
-          @auth
+          
           <li class="nav-item dropdown">
             <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
               Posty
             </a>
             <ul class="dropdown-menu">
               <li><a class="dropdown-item" href="#">Lista postów</a></li>
+              @auth
               <li><a class="dropdown-item" href="#">Dodaj posta</a></li>
+              @endauth
             </ul>
           </li>    
-          @endauth
+          
         </ul>
       </div>
     </div>
