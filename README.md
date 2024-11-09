@@ -9,6 +9,24 @@
 
 ## About Laravel
 
+Do instalacji należy użyć polecenia wykonanego w katalogu np. C:\xampp\htdocs :
+
+git clone <adres_URL>
+
+lub
+
+git clone <adres_URL> <nazwa_nowego_katalogu>
+
+i później w tym katalogu <nazwa_nowego_katalogu> należy wykonać polecenie
+
+composer install
+
+aby zainsatlować brakujące pakiety w katalogu vendor
+
+i jeszcze, żeby działała autoryzacja Breeze należy wykonać polecenie 
+
+npm install
+
 Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
 
 - [Simple, fast routing engine](https://laravel.com/docs/routing).
