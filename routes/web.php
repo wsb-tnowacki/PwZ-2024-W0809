@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\OgolneController;
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 
@@ -14,7 +15,7 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
+/* Route::get('/', function () {
     return view('welcome');
 })->name('start');
 
@@ -23,7 +24,13 @@ Route::get('/kontakt', function () {
 })->name('kontakt');
 Route::get('/onas', function () {
     return view('onas');
-})->name('onas');
+})->name('onas'); */
+
+Route::controller(OgolneController::class)->group(function (){
+    Route::get('/','start')->name('start');
+    Route::get('/kontakt','kontakt')->name('kontakt');
+    Route::get('/onas','onas')->name('onas');
+});
 
 Route::get('/dashboard', function () {
    return redirect()->route('start');
