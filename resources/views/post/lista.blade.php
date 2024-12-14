@@ -16,8 +16,9 @@
     </thead>
     <tbody>
       @php($lp=1)
+      
 @isset($posty)
-
+      @php($lp=$posty->firstItem())
       @if($posty->count())
       @foreach ($posty as $post)
       <tr>
@@ -44,6 +45,7 @@
 
     </tbody>
   </table>
+  {{ $posty->links() }}
   <script>
     function confirmDelete() {
         return confirm("Czy na pewno chcesz usunąć ten post?");
