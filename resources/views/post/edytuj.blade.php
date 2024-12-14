@@ -22,28 +22,6 @@
             @endif
         </div>
         <div class="form-group">
-            <label for="autor">Autor</label>
-            <input type="text" class="form-control" name="autor" id="autor" placeholder="Podaj autora posta" value="@if(old('autor') !== null){{old('autor')}}@else{{$post->autor}}@endif">
-            @if($errors->get('autor'))
-            <div class="alert alert-danger">
-                @foreach ($errors->get('autor') as $error)
-                <div>{{ $error }}</div>
-                @endforeach
-            </div>
-            @endif
-        </div>
-        <div class="form-group">
-            <label for="email">Email</label>
-            <input type="email" class="form-control" name="email" id="email" placeholder="Podaj email" value="@if(old('email') !== null){{old('email')}}@else{{$post->email}}@endif">
-            @if($errors->get('email'))
-            <div class="alert alert-danger">
-                @foreach ($errors->get('email') as $error)
-                <div>{{ $error }}</div>
-                @endforeach
-            </div>
-            @endif
-        </div>
-        <div class="form-group">
             <label for="tresc">Treść</label>
             <textarea class="form-control" name="tresc" id="tresc" rows="4">@if(old('tresc') !== null){{old('tresc')}}@else{{$post->tresc}}@endif</textarea>
             @if($errors->get('tresc'))

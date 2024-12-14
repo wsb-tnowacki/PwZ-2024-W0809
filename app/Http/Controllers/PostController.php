@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Post;
 use App\Http\Requests\PostRequest;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class PostController extends Controller
 {
@@ -27,6 +28,7 @@ class PostController extends Controller
      */
     public function create()
     {
+        
         return view('post.dodaj');
     }
 
@@ -36,13 +38,15 @@ class PostController extends Controller
     public function store(PostRequest $request)
     {
        // dd($request);
-       $post = new Post();
+       //$post = new Post();
        /* $post->tytul = request('tytul');
        $post->autor = request('autor');
        $post->email = request('email');
        $post->tresc = request('tresc');
        $post->save(); */
-       $post->create($request->all());
+       //$post->create($request->all());
+       $request->merge(['user_id' => Auth::user()->id]);
+        Post::create($request->all());
        return redirect()->route('post.index');
     }
 
@@ -72,6 +76,7 @@ class PostController extends Controller
         $post->email = request('email');
         $post->tresc = request('tresc'); */
 //dd($post);
+        $post->user_id=Auth::user()->id;
         $post->update($request->all());
        return redirect()->route('post.index')->with('message', "Pomyślnie zmieniono post");
     }
